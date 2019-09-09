@@ -9,7 +9,7 @@ class Message extends React.Component{
         }
     }
 
-    changeMessage(){
+    changeMessage=()=>{
         this.setState({
             message: "Text is changed"
         })  
@@ -18,7 +18,7 @@ class Message extends React.Component{
         return (
         <div >
         <h1>{this.state.message}</h1>
-        <button onClick={() => this.changeMessage()}>CLICK</button>
+        <button onClick={this.changeMessage}>CLICK</button>
         </div>);
     }
 }

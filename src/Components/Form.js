@@ -6,8 +6,10 @@ class Form extends React.Component{
         super(props)
         this.state={
             UserName: ' ',
-            textarea: ''
+            textarea: '',
+            dir: 'file.txt'
         }
+        
     }
     textHandler = (event) => {
         this.setState({
@@ -21,10 +23,15 @@ class Form extends React.Component{
         })
     }
 
-    submitHandler = evenrt => {
-        alert(`${this.state.UserName} ${this.state.textarea}`)
+    submitHandler = event => {
+        const writeFileP = require("write-file-p");
+        writeFileP(`file.txt`, "Hello World", (err, data) => {
+            console.log(err || data);
+        });
     }
 
+    
+    
     render(){
         return(
             <form onSubmit={this.submitHandler}>
